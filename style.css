@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F7ECDE;
+  align-items: center;
+  justify-content: center;
+}
+
+.to-do-list-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.input-container {
+  display: flex;
+  flex: row;
+}
