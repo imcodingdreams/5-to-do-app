@@ -1,12 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #F7ECDE;
+  background-color: #63828d;
   align-items: center;
   justify-content: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.to-do-list-container {
+.to-do-list-container header {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -17,4 +18,69 @@ body {
 div.input-container {
   display: flex;
   flex: row;
+  justify-content: center;
 }
+
+.items-list-container {
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-inline-end: 10px;
+  padding-inline-start: 7px;
+  padding-left: 0;
+  padding-right: 0;display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-item-button {
+  width: 38px;
+  height: 37px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  margin-left: 3px;
+}
+
+input {
+  width: 150px;
+  height: 25px;
+  font-size: 15px;
+  border: solid 2px rgb(216, 214, 214);
+  border-radius: 4px;
+  width: 200px;
+  height: 31px;
+}
+
+#item {
+  border: solid 2px rgb(216, 214, 214);
+  border-radius: 4px;
+  margin-top: 5px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 15px;
+}
+
+button {
+  width: 37px;
+  height: 32px;
+}
+
+#itemsList {
+  padding: 0;
+  margin-left: 400px;
+  margin-right: 400px;
+}
+

@@ -5,19 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-do app</title>
+    <script src="https://kit.fontawesome.com/affad7460b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="to-do-list-container">
-      <h1>Get it together!</h1>
-      <h2>To do items</h2>
-      <div class="input-container">
-        <input type="text" id="item-added">
-        <button id="button">Add</button>
-      </div>
-      <div id="items-list">
-        <p id="new-item"></p>
-      </div>
+      <header>
+        <h1>Get it together!</h1>
+        <h2>To do items</h2>
+      </header>
+      <form>
+        <div class="input-container">
+          <input id="itemInput" type="text">
+          <button id="addItemButton" class="add-item-button "type="submit">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <div class="items-list-container">
+          <ul id="itemsList"></ul>
+        </div>
+      </form>
     </div>
     <script src="script.js"></script>
   </body>
