@@ -38,17 +38,5 @@ function addNewItem(event) {
   itemsList.appendChild(itemsListDiv);
 };
 
-function deleteItem () {
-  const elem = document.querySelector('#hint');
-  elem.remove('ul');
-};
-
-function crossItem () {
-  let doneTodo = itemInput.value;
-  let result = doneTodo.onclick.strike(checkbox);
-  document.getElementById(checkbox).innerHTML = doneTodo;
-  return result
-};
-
 //Delete item once deleteBtn is clicked
 //Cross item's text once checkbox is clicked
