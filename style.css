@@ -53,6 +53,10 @@ input {
   height: 31px;
 }
 
+i {
+  pointer-events: none;
+}
+
 #item {
   border: solid 2px rgb(216, 214, 214);
   border-radius: 4px;
