@@ -27,10 +27,6 @@ function addNewItem() {
   deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
   deleteBtn.setAttribute('id', 'deleteBtn');
   deleteBtn.addEventListener('click', deleteItem);
-  // deleteBtn.addEventListener("keydown", function(e) {
-  // if (e.key === "Enter")
-  // itemsListDiv.appendChild(deleteBtn);
-  // });
 
   itemsListDiv.appendChild(deleteBtn);
   itemInput.value = '';
@@ -43,13 +39,16 @@ function deleteItem(e) {
   itemsList.removeChild(itemsListDiv);
 }
 
+// Fix e.target for each checkbox
 function crossItem(e) {
   const checkbox = e.target;
-  const check = checkbox.parentElement;
-  const strikethrough = document.getElementById("newItem");
-  strikethrough.style.setProperty("text-decoration", "line-through");
-  strikethrough.style.setProperty("color", "gray");
-  const strikeCheck = document.getElementById("strikeCheck");
-  strikeCheck.style.setProperty("color", "gray");
-}
+  if (e.target === checkbox) {
+    const strikethrough = document.getElementById("newItem");
+    strikethrough.style.setProperty("text-decoration", "line-through");
+    strikethrough.style.setProperty("color", "gray");
+    const strikeCheck = document.getElementById("strikeCheck");
+    strikeCheck.style.setProperty("color", "gray");
+  }
+};
+
 
