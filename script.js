@@ -5,24 +5,23 @@ const itemsList = document.getElementById('itemsList');
 addItemButton.addEventListener('click', addNewItem);
 
 function addNewItem() {
-  //Create div
+if (itemInput.value === '') {
+    alert ("Please, add a to do.");
+  } else {
   const itemsListDiv = document.createElement('div');
   itemsListDiv.setAttribute('id', 'item');
 
-  //Create checkbox
   const checkbox = document.createElement('button');
-  checkbox.innerHTML = '<i id="strikeCheck" class="fa-sharp fa-solid fa-check"></i>';
+  checkbox.innerHTML = '<i id="strikeCheck" class="fa-regular fa-square"></i>';
   checkbox.setAttribute('id', 'checkbox');
   checkbox.addEventListener('click', crossItem);
   itemsListDiv.appendChild(checkbox);
 
-  //Create li
   const newItem = document.createElement('li');
   newItem.innerText = itemInput.value;
   newItem.setAttribute('id', 'newItem');
   itemsListDiv.appendChild(newItem);
 
-  //Create delete button
   const deleteBtn = document.createElement('button');
   deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
   deleteBtn.setAttribute('id', 'deleteBtn');
@@ -31,24 +30,28 @@ function addNewItem() {
   itemsListDiv.appendChild(deleteBtn);
   itemInput.value = '';
   itemsList.appendChild(itemsListDiv);
+  }
 };
 
 function deleteItem(e) {
   const deleteBtn = e.target;
   const itemsListDiv = deleteBtn.parentElement;
   itemsList.removeChild(itemsListDiv);
-}
+};
 
-// Fix e.target for each checkbox
 function crossItem(e) {
   const checkbox = e.target;
+  const parentDiv = checkbox.parentElement;
+  const childElements = parentDiv.childNodes;
   if (e.target === checkbox) {
-    const strikethrough = document.getElementById("newItem");
+    const strikethrough = childElements[1];
     strikethrough.style.setProperty("text-decoration", "line-through");
-    strikethrough.style.setProperty("color", "gray");
-    const strikeCheck = document.getElementById("strikeCheck");
-    strikeCheck.style.setProperty("color", "gray");
+    strikethrough.style.setProperty("color", "gray"); 
+    checkbox.innerHTML = '<i class="fa-regular fa-square-check"></i>';
+    checkbox.style.setProperty("color", "gray"); 
   }
 };
+
+
 
 
