@@ -1,7 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #63828d;
+  background-image: url('./images/to_do_background.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-attachment: fixed;
   align-items: center;
   justify-content: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -29,7 +33,8 @@ div.input-container {
   padding-inline-end: 10px;
   padding-inline-start: 7px;
   padding-left: 0;
-  padding-right: 0;display: flex;
+  padding-right: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -43,22 +48,23 @@ div.input-container {
   margin-left: 3px;
 }
 
-input {
+.item-input {
   width: 150px;
-  height: 25px;
+  height: 32px;
   font-size: 15px;
-  border: solid 2px rgb(216, 214, 214);
+  border: solid 2px #9c9999;
   border-radius: 4px;
   width: 200px;
   height: 31px;
+  padding-left: 5px;
 }
 
 i {
   pointer-events: none;
 }
 
-#item {
-  border: solid 2px rgb(216, 214, 214);
+.item {
+  border: solid 2px #9c9999;
   border-radius: 4px;
   margin-top: 5px;
   background-color: white;
@@ -77,14 +83,35 @@ li {
   font-size: 15px;
 }
 
-button {
-  width: 37px;
-  height: 32px;
+button.add-item-button {
+  width: 38px;
+  height: 37px;
+  border: solid 2px #9c9999;
+  border-radius: 4px;
 }
 
-#itemsList {
+button.delete-btn {
+  width: 38px;
+  height: 34px;
+  background-color: #efefef;
+  border-left: solid 2px #9c9999;
+  border-bottom: none;
+  border-right: none;
+  border-top: none;
+}
+
+button.add-item-button:hover, button.delete-btn:hover {
+  background-color: #c9d894;
+}
+
+.items-list {
   padding: 0;
   margin-left: 400px;
   margin-right: 400px;
 }
 
+.checkbox {
+  accent-color:  #c9d894;
+  color: #000000;
+  margin-left: 10px;
+}

@@ -5,27 +5,29 @@ const itemsList = document.getElementById('itemsList');
 addItemButton.addEventListener('click', addNewItem);
 
 function addNewItem() {
-if (itemInput.value === '') {
-    alert ("Please, add a to do.");
+  if (itemInput.value === '') {
+      alert ("Please, add a to do.");
   } else {
   const itemsListDiv = document.createElement('div');
-  itemsListDiv.setAttribute('id', 'item');
+  itemsListDiv.setAttribute('class', 'item');
 
-  const checkbox = document.createElement('button');
-  checkbox.innerHTML = '<i id="strikeCheck" class="fa-regular fa-square"></i>';
-  checkbox.setAttribute('id', 'checkbox');
+  const checkbox = document.createElement('input');
+  checkbox.setAttribute('class', 'checkbox');
+  checkbox.setAttribute('type', 'checkbox');
   checkbox.addEventListener('click', crossItem);
   itemsListDiv.appendChild(checkbox);
 
   const newItem = document.createElement('li');
   newItem.innerText = itemInput.value;
-  newItem.setAttribute('id', 'newItem');
+  newItem.setAttribute('class', 'new-item');
   itemsListDiv.appendChild(newItem);
 
   const deleteBtn = document.createElement('button');
   deleteBtn.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
-  deleteBtn.setAttribute('id', 'deleteBtn');
-  deleteBtn.addEventListener('click', deleteItem);
+  deleteBtn.setAttribute('class', 'delete-btn');
+  deleteBtn.addEventListener('click', function(e) {
+    deleteItem(e, checkbox);
+  });
 
   itemsListDiv.appendChild(deleteBtn);
   itemInput.value = '';
@@ -33,25 +35,24 @@ if (itemInput.value === '') {
   }
 };
 
-function deleteItem(e) {
-  const deleteBtn = e.target;
-  const itemsListDiv = deleteBtn.parentElement;
-  itemsList.removeChild(itemsListDiv);
-};
-
 function crossItem(e) {
   const checkbox = e.target;
   const parentDiv = checkbox.parentElement;
   const childElements = parentDiv.childNodes;
-  if (e.target === checkbox) {
-    const strikethrough = childElements[1];
-    strikethrough.style.setProperty("text-decoration", "line-through");
-    strikethrough.style.setProperty("color", "gray"); 
-    checkbox.innerHTML = '<i class="fa-regular fa-square-check"></i>';
-    checkbox.style.setProperty("color", "gray"); 
+  const strikethrough = childElements[1];
+  if (checkbox.checked) {
+    strikethrough.style.setProperty("text-decoration", "line-through")
+    strikethrough.style.setProperty("color", "gray");
+  } else {
+    strikethrough.style.setProperty("text-decoration", "none");
+    strikethrough.style.setProperty("color", "black");
   }
 };
 
-
-
-
+function deleteItem(e, checkboxElement) {
+  const deleteBtn = e.target;
+  const itemsListDiv = deleteBtn.parentElement;
+  if (checkboxElement.checked) {
+    itemsList.removeChild(itemsListDiv);
+  }
+};
